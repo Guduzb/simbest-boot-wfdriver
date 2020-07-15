@@ -4,7 +4,6 @@ package com.simbest.boot.wfdriver.process.listener.service;
 import com.simbest.boot.base.service.ILogicService;
 import com.simbest.boot.wfdriver.process.listener.model.ActTaskInstModel;
 
-import java.security.PrivateKey;
 import java.util.List;
 
 /**
@@ -67,11 +66,4 @@ public interface IActTaskInstModelService extends ILogicService<ActTaskInstModel
      * @auther Administrator
      */
     List<ActTaskInstModel> queryRunningTaskInstModelByProcessInstId(String processInsId);
-
-    /**
-     * 根据taskId删除所有的环节信息
-     * @param taskIds
-     * @return
-     */
-    boolean deleteAllByTaskIds(List<String > taskIds);
 }

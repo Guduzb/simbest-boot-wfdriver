@@ -4,9 +4,7 @@ package com.simbest.boot.wfdriver.process.bussiness.service;
 import com.simbest.boot.base.service.IGenericService;
 import com.simbest.boot.wfdriver.process.bussiness.model.ActBusinessStatus;
 import com.simbest.boot.wfdriver.process.listener.model.ActProcessInstModel;
-import org.springframework.data.domain.Page;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -69,6 +67,4 @@ public interface IActBusinessStatusService extends IGenericService<ActBusinessSt
      * @auther ljw
      */
     int updatePorcessStateByProInstId(String processInstId);
-
-
 }

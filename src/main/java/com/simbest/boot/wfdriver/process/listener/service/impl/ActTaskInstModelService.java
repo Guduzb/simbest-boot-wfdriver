@@ -293,23 +293,4 @@ public class ActTaskInstModelService extends LogicService<ActTaskInstModel,Strin
         }
         return null;
     }
-
-    /**
-     * 根据taskId删除所有的环节信息
-     * @param taskIds
-     * @return
-     */
-    @Override
-    public boolean deleteAllByTaskIds(List<String> taskIds) {
-        boolean ret = Boolean.FALSE;
-        try {
-            actTaskInstModelMapper.deleteAllByTaskIds(taskIds);
-            ret = Boolean.TRUE;
-        } catch (Exception e ) {
-            Exceptions.printException(e);
-        }
-        return ret;
-    }
-
-
 }

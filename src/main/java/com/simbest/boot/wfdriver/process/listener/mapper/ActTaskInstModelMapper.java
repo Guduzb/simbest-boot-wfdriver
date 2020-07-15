@@ -112,16 +112,4 @@ public interface ActTaskInstModelMapper extends LogicRepository<ActTaskInstModel
      * @auther ljw
      */
     List<ActTaskInstModel> queryByProcessInstIdAndTaskDefinitionKeyAndAssigneeAndEnabled(String processInstId,String taskDefKey,String assignee,Boolean enabled);
-
-    /**
-     * 根据taskId删除所有的环节信息
-     * @param taskIds
-     */
-    String deleteSql2 = "";
-    @Modifying
-    @Query(
-            value = " update flowable_task_inst_model t set t.enabled=0 where  t.task_id in (:taskIds)",
-            nativeQuery = true
-    )
-    void deleteAllByTaskIds(@Param("taskIds") List<String> taskIds);
 }

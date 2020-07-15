@@ -55,7 +55,7 @@ public class WqqueryHttpService {
         m.put("SUBMITDATE",SUBMITDATE);
         m.put("SOURCESYSTEMID",SOURCESYSTEMID);
         m.put("SOURCESYSTEMNAME",SOURCESYSTEMNAME);
-        jsonParam   =JacksonUtils.obj2json(m);
+        jsonParam=JacksonUtils.obj2json(m);
 
         Map<String,Object> map = new HashMap<String, Object>();
         try {
