@@ -3,6 +3,7 @@ package com.simbest.boot.wfdriver.process.bussiness.service.impl;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
+import com.simbest.boot.base.exception.Exceptions;
 import com.simbest.boot.base.service.impl.GenericService;
 import com.simbest.boot.security.IOrg;
 import com.simbest.boot.security.IUser;
@@ -225,6 +226,27 @@ public class ActBusinessStatusService extends GenericService<ActBusinessStatus,S
             FlowableDriverBusinessException.printException( e );
         }
         return 0;
+    }
+
+    /**
+     * 根据业务流程定义id获取该流程所有的待办信息并分页
+     * @param page  页码
+     * @param rows  行数
+     * @param boProcessDefId   业务流程实例id
+     * @param userName        当前办理人
+     * @param businessTitle   标题
+     * @return
+     */
+    @Override
+    public Page<Map<String, Object>> getAllByBoProcessDefId(int page, int rows, String boProcessDefId, String userName, String businessTitle) {
+        Page<Map<String , Object>> result = null;
+        try {
+            Pageable pageable = this.getPageable(page, rows);
+            result = actBusinessStatusMapper.getAllByBoProcessDefId(boProcessDefId , userName , businessTitle , pageable);
+        } catch (Exception e ) {
+            Exceptions.printException(e);
+        }
+        return result;
     }
 
     /**
